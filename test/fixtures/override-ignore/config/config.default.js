@@ -1,6 +1,6 @@
 'use strict';
 
-exports.development = {
+exports.hotReload = {
   overrideIgnore: true,
   ignoreDirs: [
     'app/public',

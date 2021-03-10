@@ -6,7 +6,7 @@ const sleep = require('mz-modules/sleep');
 describe('fastReady = false', () => {
   let app;
   beforeEach(() => {
-    mm(process.env, 'NODE_ENV', 'development');
+    mm(process.env, 'NODE_ENV', 'production');
   });
   afterEach(() => app.close());
   afterEach(mm.restore);
@@ -24,7 +24,7 @@ describe('fastReady = false', () => {
     app.expect('stdout', /Server started./);
   });
 
-  it('should not fast ready if config.development.fastReady is false', async () => {
+  it('should not fast ready if config.hotReload.fastReady is false', async () => {
     app = mm.cluster({
       baseDir: 'fast-ready',
     });

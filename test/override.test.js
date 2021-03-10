@@ -16,7 +16,7 @@ describe('test/override.test.js', () => {
 
   describe('overrideDefault', () => {
     before(() => {
-      mm.env('local');
+      mm.env('production');
       app = mm.cluster({
         baseDir: 'override',
       });
@@ -45,7 +45,7 @@ describe('test/override.test.js', () => {
 
   describe('overrideIgnore', () => {
     before(() => {
-      mm.env('local');
+      mm.env('production');
       app = mm.cluster({
         baseDir: 'override-ignore',
       });

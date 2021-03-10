@@ -1,11 +1,11 @@
 {
-  "name": "egg-development",
-  "version": "2.7.0",
-  "description": "development tool for egg",
+  "name": "egg-hot-reload",
+  "version": "0.0.1",
+  "description": "worker hot reload tool for egg",
   "eggPlugin": {
-    "name": "development",
+    "name": "hotReload",
     "env": [
-      "local"
+      "production"
     ],
     "dependencies": [
       "watcher"
@@ -53,17 +53,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eggjs/egg-development.git"
+    "url": "git+https://github.com/hex-ci/egg-hot-reload.git"
   },
   "files": [
-    "app",
     "config",
-    "lib",
     "agent.js",
     "app.js"
   ],
-  "bugs": "https://github.com/eggjs/egg/issues",
-  "homepage": "https://github.com/eggjs/egg-development#readme",
-  "author": "jtyjty99999",
+  "bugs": "https://github.com/hex-ci/egg-hot-reload/issues",
+  "homepage": "https://github.com/hex-ci/egg-hot-reload#readme",
+  "author": "Hex",
   "license": "MIT"
 }

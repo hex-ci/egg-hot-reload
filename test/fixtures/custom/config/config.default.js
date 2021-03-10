@@ -1,5 +1,5 @@
 'use strict';
 
-exports.development = {
+exports.hotReload = {
   reloadPattern: ['**', '!**/*.ts'],
 }

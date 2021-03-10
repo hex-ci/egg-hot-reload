@@ -9,7 +9,7 @@ const { escape } = require('./utils');
 describe('test/custom.test.js', () => {
   let app;
   before(() => {
-    mm.env('local');
+    mm.env('production');
     app = mm.cluster({
       baseDir: 'custom',
     });

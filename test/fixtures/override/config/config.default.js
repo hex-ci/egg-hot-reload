@@ -1,6 +1,6 @@
 'use strict';
 
-exports.development = {
+exports.hotReload = {
   overrideDefault: true,
   watchDirs: [
     'app/service',

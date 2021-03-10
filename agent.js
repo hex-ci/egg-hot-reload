@@ -12,18 +12,24 @@ module.exports = agent => {
   agent.beforeStart(async () => {
     const rundir = agent.config.rundir;
     const files = await fs.readdir(rundir);
+
     for (const file of files) {
-      if (!/^(agent|application)_timing/.test(file)) continue;
+      if (!/^(agent|application)_timing/.test(file)) {
+        continue;
+      }
+
       await rimraf(path.join(agent.config.rundir, file));
     }
   });
 
   // single process mode don't watch and reload
-  if (agent.options && agent.options.mode === 'single') return;
+  if (agent.options && agent.options.mode === 'single') {
+    return;
+  }
 
   const logger = agent.logger;
   const baseDir = agent.config.baseDir;
-  const config = agent.config.development;
+  const config = agent.config.hotReload;
 
   let watchDirs = config.overrideDefault ? [] : [
     'app',
@@ -46,7 +52,7 @@ module.exports = agent => {
   ignoreReloadFileDirs = ignoreReloadFileDirs.concat(config.ignoreDirs).map(dir => path.resolve(baseDir, dir));
 
   const reloadFile = debounce(function(info) {
-    logger.warn(`[agent:development] reload worker because ${info.path} ${info.event}`);
+    logger.warn(`[agent:hotReload] reload worker because ${info.path} ${info.event}`);
 
     process.send({
       to: 'master',

@@ -15,7 +15,7 @@ describe('test/absolute.test.js', () => {
     await mkdirp(path.dirname(filepath));
     await fs.writeFile(filepath, '');
 
-    mm.env('local');
+    mm.env('production');
     app = mm.cluster({
       baseDir: 'absolute',
       debug: true,

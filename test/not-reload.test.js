@@ -9,7 +9,7 @@ const { escape } = require('./utils');
 describe('test/not-reload.test.js', () => {
   let app;
   before(() => {
-    mm.env('local');
+    mm.env('production');
     mm(process.env, 'EGG_DEBUG', true);
     app = mm.cluster({
       baseDir: 'not-reload',
@@ -33,4 +33,3 @@ describe('test/not-reload.test.js', () => {
     app.notExpect('stdout', new RegExp(escape(`reload worker because ${filepath} change`)));
   });
 });
-

@@ -11,10 +11,10 @@ describe('test/process_mode_single.test.js', () => {
   let app;
   before(async () => {
     app = await require('egg').start({
-      env: 'local',
+      env: 'production',
       baseDir: path.join(__dirname, 'fixtures/development'),
       plugins: {
-        development: {
+        hotReload: {
           enable: true,
           path: path.join(__dirname, '..'),
         },
@@ -49,4 +49,3 @@ describe('test/process_mode_single.test.js', () => {
     assert(!warn);
   });
 });
-
