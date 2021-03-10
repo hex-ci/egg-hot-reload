@@ -6,7 +6,6 @@ const multimatch = require('multimatch');
 const rimraf = require('mz-modules/rimraf');
 const fs = require('mz/fs');
 
-
 module.exports = agent => {
   // clean all timing json
   agent.beforeStart(async () => {
@@ -34,8 +33,6 @@ module.exports = agent => {
   let watchDirs = config.overrideDefault ? [] : [
     'app',
     'config',
-    'mocks',
-    'mocks_proxy',
     'app.js',
   ];
 
@@ -76,10 +73,6 @@ module.exports = agent => {
    * @param {Object} info - changed fileInfo
    */
   function reloadWorker(info) {
-    if (!config.reloadOnDebug) {
-      return;
-    }
-
     if (isAssetsDir(info.path) || info.isDirectory) {
       return;
     }

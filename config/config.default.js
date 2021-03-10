@@ -1,5 +1,7 @@
 'use strict';
 
+const path = require('path');
+
 /**
  * @member Config#hotReload
  * @property {Array} watchDirs - dirs needed watch, when files under these change, application will reload, use relative path
@@ -14,8 +16,14 @@ exports.hotReload = {
   watchDirs: [],
   ignoreDirs: [],
   fastReady: false,
-  reloadOnDebug: true,
   overrideDefault: false,
   overrideIgnore: false,
   reloadPattern: undefined,
+};
+
+exports.watcher = {
+  type: 'reload',
+  eventSources: {
+    reload: path.join(__dirname, '../lib/reload-event-source'),
+  },
 };
