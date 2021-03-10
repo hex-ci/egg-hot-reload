@@ -1,6 +1,6 @@
 {
   "name": "egg-hot-reload",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "worker hot reload tool for egg",
   "eggPlugin": {
     "name": "hotReload",
